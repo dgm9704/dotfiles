@@ -188,24 +188,32 @@ focus_follows_mouse no
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	font = ter-u24n 
         status_command i3status --config ~/.config/i3status.conf
 }
 
 #raise volume
 bindsym $mod+KP_Multiply exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
 
 #lower volume
 bindsym $mod+KP_Divide exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
 
 #mute/unmute the volume
 bindsym $mod+KP_Subtract exec "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
-input 1118:1874:Microsoft_Wired_Keyboard_400 {
-	xkb_layout fi
-}
+#control screen brightness
+bindsym XF86MonBrightnessDown exec "light -U 5"
+bindsym XF86MonBrightnessUp exec "light -A 5"
+
+#set Finnish layout for any keyboard
+input *	xkb_layout "fi"
 
 output VGA-1 bg ~/Pictures/arch_wallpaper.png stretch
 
 default_border none
 
 gaps inner 10
+
