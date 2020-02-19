@@ -212,8 +212,9 @@ bindsym XF86MonBrightnessUp exec "light -A 5"
 input *	xkb_layout "fi"
 
 output VGA-1 bg ~/Pictures/arch_wallpaper.png stretch
+output DSI-1 scale 2 
 
 default_border none
 
-gaps inner 10
+#gaps inner 10
 
