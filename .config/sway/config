@@ -189,10 +189,12 @@ focus_follows_mouse no
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	font = ter-u24n 
         status_command i3status --config ~/.config/i3status.conf
 }
 
 #raise volume
+<<<<<<< HEAD
 bindsym $mod+KP_Multiply exec "pactl set-sink-mute @DEFAULT_SINK@ false ; pactl set-sink-volume @DEFAULT_SINK@ +5%"
 
 #lower volume
@@ -201,10 +203,25 @@ bindsym $mod+KP_Divide exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 
 #mute/unmute the volume
 bindsym $mod+KP_Subtract exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+=======
+bindsym $mod+KP_Multiply exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%"
 
-input 1118:1874:Microsoft_Wired_Keyboard_400 {
-	xkb_layout fi
-}
+#lower volume
+bindsym $mod+KP_Divide exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 -5%"
+
+#mute/unmute the volume
+bindsym $mod+KP_Subtract exec "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
+>>>>>>> refs/remotes/origin/master
+
+#control screen brightness
+bindsym XF86MonBrightnessDown exec "light -U 5"
+bindsym XF86MonBrightnessUp exec "light -A 5"
+
+#set Finnish layout for any keyboard
+input *	xkb_layout "fi"
 
 #output VGA-1 bg ~/Pictures/arch_wallpaper.png stretch
 #swaybg_command -i /home/john/Pictures/arch_wallpaper.png 
